@@ -1,0 +1,40 @@
+
+
+type Task {
+  id: ID!
+  title: String!
+  description: String
+}
+
+type Query {
+  AllTasks: [Task!]!
+}
+
+input CreateTaskInput{
+  title: String!
+  description: String
+}
+
+input UpdateTaskInput{
+  title: String
+  description: String
+}
+
+
+type DeletePayload{
+  id:ID!
+}
+
+
+type Mutation{
+  CreateTask(input:CreateTaskInput! ): Task!
+  UpdateTask(id:ID! , input:UpdateTaskInput! ): Task!
+  DeleteTask(id:ID!): DeletePayload!
+}
+
+
+enum Subject {
+    Subject1
+    Subject2
+    Subject3
+  }
